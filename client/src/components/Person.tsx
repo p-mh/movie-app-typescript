@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IPerson } from "../type/person";
+import { IPeople } from "../../../commons/types/people";
 import { fetchPersonInfos } from "../services/apiCalls";
 import { RouteComponentProps } from "react-router";
 
 interface IProps extends RouteComponentProps<{ personId: string }> {}
 
 interface IState {
-  PersonInfos: IPerson | undefined;
+  PersonInfos: IPeople | undefined;
   isLoading: boolean;
 }
 

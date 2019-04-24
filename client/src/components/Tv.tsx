@@ -1,7 +1,7 @@
 import React from "react";
 import { fetchTVInfos } from "../services/apiCalls";
 import { RouteComponentProps } from "react-router";
-import { ISerie, ISeason } from "../type/serie";
+import { ISerie, ISeason } from "../../../commons/types/series";
 
 interface IProps extends RouteComponentProps<{ tvId: string }> {}
 

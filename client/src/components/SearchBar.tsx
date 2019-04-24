@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { fetchSearchMovieSerirOrPeople } from '../services/apiCalls';
-import { IMovieSerieOrPeople } from '../type/moviesSerieOrPeople';
+import React from "react";
+import { Link } from "react-router-dom";
+import { fetchSearchMovieSerirOrPeople } from "../services/apiCalls";
+import { IMovieSerieOrPeople } from "../../../commons/types/movieSerieOrPeople";
 
 interface IProps {}
 
@@ -12,8 +12,8 @@ interface IState {
 
 class SearchBar extends React.Component<IProps, IState> {
   state = {
-    searchInput: '',
-    results: [],
+    searchInput: "",
+    results: []
   };
 
   searchMovieSerieOrPeople = async (query: string) => {
@@ -26,7 +26,7 @@ class SearchBar extends React.Component<IProps, IState> {
   };
 
   changeSearchInput = ({
-    currentTarget: { value: searchInput },
+    currentTarget: { value: searchInput }
   }: React.ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchInput });
     this.searchMovieSerieOrPeople(searchInput);

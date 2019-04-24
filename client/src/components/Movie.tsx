@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IMovie } from "../type/movie";
+import { IMovie } from "../../../commons/types/movie";
 import { fetchMovieInfos } from "../services/apiCalls";
 import { RouteComponentProps } from "react-router";
 

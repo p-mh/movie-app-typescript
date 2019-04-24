@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { IMovie } from "../type/moviesSerieOrPeople";
+import { IMovie } from "../../../commons/types/movie";
 import { fetchTrendingMovie } from "../services/apiCalls";
 
 interface IProps {}
