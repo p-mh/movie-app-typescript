@@ -1,7 +1,7 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { IMovie } from '../type/moviesSerieOrPeople';
-import { fetchTrendingMovie } from '../services/apiCalls';
+import React from "react";
+import { Link } from "react-router-dom";
+import { IMovie } from "../type/moviesSerieOrPeople";
+import { fetchTrendingMovie } from "../services/apiCalls";
 
 interface IProps {}
 
@@ -33,7 +33,7 @@ class Homepage extends React.Component<IProps, IState> {
         <h2>{title}</h2>
       </div>
     ));
-    return <div>{showMovies || loader}</div>;
+    return <div>{loader || showMovies}</div>;
   }
 }
 

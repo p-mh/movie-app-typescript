@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { IMovie } from '../type/movie';
-import { fetchMovieInfos } from '../services/apiCalls';
-import { RouteComponentProps } from 'react-router';
+import React from "react";
+import { Link } from "react-router-dom";
+import { IMovie } from "../type/movie";
+import { fetchMovieInfos } from "../services/apiCalls";
+import { RouteComponentProps } from "react-router";
 
 interface IProps extends RouteComponentProps<{ movieId: string }> {}
 
@@ -14,10 +14,10 @@ interface IState {
 class Movie extends React.Component<IProps, IState> {
   state = {
     movieInfos: undefined,
-    isLoading: true,
+    isLoading: true
   };
 
-  componentDidUpdate(prevProps: IProps, prevState: IState) {
+  componentDidUpdate(prevProps: IProps) {
     if (prevProps.match.params.movieId !== this.props.match.params.movieId) {
       const { movieId } = this.props.match.params;
       this.setState({ isLoading: true });
@@ -34,19 +34,14 @@ class Movie extends React.Component<IProps, IState> {
     const movieInfos = await fetchMovieInfos(movieId);
     this.setState({
       movieInfos,
-      isLoading: false,
+      isLoading: false
     });
   };
 
   render() {
     const {
       isLoading,
-      movieInfos: {
-        title = '',
-        posterPath = '',
-        overview = '',
-        cast = [],
-      } = {},
+      movieInfos: { title = "", posterPath = "", overview = "", cast = [] } = {}
     } = this.state;
 
     const loader = isLoading && <p>Loading...</p>;

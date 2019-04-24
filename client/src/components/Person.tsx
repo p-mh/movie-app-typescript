@@ -1,8 +1,8 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { IPerson } from '../type/person';
-import { fetchPersonInfos } from '../services/apiCalls';
-import { RouteComponentProps } from 'react-router';
+import React from "react";
+import { Link } from "react-router-dom";
+import { IPerson } from "../type/person";
+import { fetchPersonInfos } from "../services/apiCalls";
+import { RouteComponentProps } from "react-router";
 
 interface IProps extends RouteComponentProps<{ personId: string }> {}
 
@@ -14,10 +14,10 @@ interface IState {
 class Person extends React.Component<IProps, IState> {
   state = {
     PersonInfos: undefined,
-    isLoading: true,
+    isLoading: true
   };
 
-  componentDidUpdate(prevProps: IProps, prevState: IState) {
+  componentDidUpdate(prevProps: IProps) {
     if (prevProps.match.params.personId !== this.props.match.params.personId) {
       const { personId } = this.props.match.params;
       this.setState({ isLoading: true });
@@ -34,19 +34,14 @@ class Person extends React.Component<IProps, IState> {
     const PersonInfos = await fetchPersonInfos(PersonId);
     this.setState({
       PersonInfos,
-      isLoading: false,
+      isLoading: false
     });
   };
 
   render() {
     const {
       isLoading,
-      PersonInfos: {
-        title = '',
-        profilePath = '',
-        biography = '',
-        cast = [],
-      } = {},
+      PersonInfos: { title = "", profilePath = "", biography = "", cast = [] } = {}
     } = this.state;
 
     const loader = isLoading && <p>Loading...</p>;
