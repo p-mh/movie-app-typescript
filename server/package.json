@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "axios": "^0.18.0",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "@types/async": "^2.4.1",
+    "@types/express": "^4.16.1",
+    "@types/node": "^11.13.7",
+    "prettier-tslint": "^0.4.2",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "typescript": "^3.4.4"
+  },
+  "scripts": {
+    "start:dev": "ts-node-dev --respawn --no-notify index.ts",
+    "build": "tsc"
+  }
+}
