@@ -20,7 +20,7 @@ import {
 
 import { BASE_URL_300, PLACEHOLDER_300, BASE_URL_200, PLACEHOLDER_200 } from "../utils/constantes";
 
-const formatMovieCast = (movieCast: IUnformatedMovieCast[]): IMovieCast[] =>
+export const formatMovieCast = (movieCast: IUnformatedMovieCast[]): IMovieCast[] =>
   movieCast
     .map(({ id, name, character, profile_path }) => ({
       id,
@@ -48,7 +48,7 @@ export const formatMovie = ({
 
 export const formatMovies = (movies: IUnformatedMovie[]): IMovie[] => movies.map(formatMovie);
 
-const formatSeason = (seasons: IUnformatedSeason[]): ISeason[] =>
+export const formatSeason = (seasons: IUnformatedSeason[]): ISeason[] =>
   seasons.map(({ id, name, overview, poster_path, season_number, air_date, episode_count }) => ({
     id,
     name,
@@ -75,7 +75,7 @@ export const formatSerie = ({
   seasons: seasons ? formatSeason(seasons) : []
 });
 
-const formatPeopleCast = (peopleCast: IUnformatedPeopleCast[]): IPeopleCast[] =>
+export const formatPeopleCast = (peopleCast: IUnformatedPeopleCast[]): IPeopleCast[] =>
   peopleCast
     .map(({ id, character, title, poster_path }) => ({
       id,

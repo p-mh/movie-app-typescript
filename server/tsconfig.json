@@ -11,5 +11,5 @@
     "allowSyntheticDefaultImports": true
   },
   "exclude": ["node_modules", "**/*.spec.ts", "**/*.test.ts"],
-  "include": ["**/*.ts"]
+  "include": ["**/*.ts", "__mocks__/axios.ts", "services/apiCalls.test.js"]
 }

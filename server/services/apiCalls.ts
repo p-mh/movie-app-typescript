@@ -26,15 +26,18 @@ export const getTrendingWeekMovies = async () => {
 };
 
 export const getMovie = async (movieId: string) => {
-  const { data } = await axios.get<IUnformatedMovie>(
-    `${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`
-  );
-  const {
-    data: { cast }
-  } = await axios.get<ICast<IUnformatedMovieCast[]>>(
-    `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
-  );
-  return { ...data, cast };
+  const [
+    { data: movie },
+    {
+      data: { cast }
+    }
+  ] = await Promise.all([
+    axios.get<IUnformatedMovie>(`${BASE_URL}/movie/${movieId}?api_key=${API_KEY}`),
+    axios.get<ICast<IUnformatedMovieCast[]>>(
+      `${BASE_URL}/movie/${movieId}/credits?api_key=${API_KEY}`
+    )
+  ]);
+  return { ...movie, cast };
 };
 
 export const getTV = async (TVId: string) => {
@@ -43,15 +46,18 @@ export const getTV = async (TVId: string) => {
 };
 
 export const getPeople = async (personId: string) => {
-  const { data } = await axios.get<IUnformaredPeople>(
-    `${BASE_URL}/person/${personId}?api_key=${API_KEY}`
-  );
-  const {
-    data: { cast }
-  } = await axios.get<ICast<IUnformatedPeopleCast[]>>(
-    `${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`
-  );
-  return { ...data, cast };
+  const [
+    { data: person },
+    {
+      data: { cast }
+    }
+  ] = await Promise.all([
+    axios.get<IUnformaredPeople>(`${BASE_URL}/person/${personId}?api_key=${API_KEY}`),
+    axios.get<ICast<IUnformatedPeopleCast[]>>(
+      `${BASE_URL}/person/${personId}/movie_credits?api_key=${API_KEY}`
+    )
+  ]);
+  return { ...person, cast };
 };
 
 export const getSearchMulti = async (query: string) => {
